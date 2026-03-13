@@ -60,7 +60,7 @@ namespace PoChunSu_BackendTest_MidLevel.Controllers
             try
             {
                 // 呼叫 SP 產生主鍵
-// 新的專業寫法 (請貼上)
+
 var connection = _context.Database.GetDbConnection();
 await connection.OpenAsync();
 using var command = connection.CreateCommand();
