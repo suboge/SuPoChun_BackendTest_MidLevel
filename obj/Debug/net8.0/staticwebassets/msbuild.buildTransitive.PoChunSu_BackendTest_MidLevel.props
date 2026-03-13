@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/PoChunSu_BackendTest_MidLevel.props" />
+</Project>
