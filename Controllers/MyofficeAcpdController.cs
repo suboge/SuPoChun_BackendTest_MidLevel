@@ -91,6 +91,7 @@ var newId = returnParam.Value?.ToString() ?? Guid.NewGuid().ToString();
 myOfficeAcpd.AcpdSid = newId;
 
                 _context.MyOfficeAcpds.Add(myOfficeAcpd);
+                await LogExecution("CreateAcpd", myOfficeAcpd);
                 await _context.SaveChangesAsync();
 
                 return CreatedAtAction(nameof(GetById), new { id = myOfficeAcpd.AcpdSid }, myOfficeAcpd);
@@ -151,5 +152,38 @@ myOfficeAcpd.AcpdSid = newId;
         {
             return _context.MyOfficeAcpds.Any(e => e.AcpdSid == id);
         }
+        private async Task LogExecution(string action, object data)
+{
+    try
+    {
+        var connection = _context.Database.GetDbConnection();
+        if (connection.State != ConnectionState.Open) await connection.OpenAsync();
+
+        using var command = connection.CreateCommand();
+        command.CommandText = "usp_AddLog";
+        command.CommandType = CommandType.StoredProcedure;
+
+        // 設定 SP 要求的參數
+        var p1 = command.CreateParameter(); p1.ParameterName = "@_InBox_ReadID"; p1.Value = 0; command.Parameters.Add(p1);
+        var p2 = command.CreateParameter(); p2.ParameterName = "@_InBox_SPNAME"; p2.Value = "MyofficeAcpdController"; command.Parameters.Add(p2);
+        var p3 = command.CreateParameter(); p3.ParameterName = "@_InBox_GroupID"; p3.Value = Guid.NewGuid(); command.Parameters.Add(p3);
+        var p4 = command.CreateParameter(); p4.ParameterName = "@_InBox_ExProgram"; p4.Value = action; command.Parameters.Add(p4);
+        var p5 = command.CreateParameter(); p5.ParameterName = "@_InBox_ActionJSON"; p5.Value = System.Text.Json.JsonSerializer.Serialize(data); command.Parameters.Add(p5);
+
+        // Output 參數 (雖然我們不一定會用到回傳值，但 SP 要求就必須給)
+        var pOut = command.CreateParameter();
+        pOut.ParameterName = "@_OutBox_ReturnValues";
+        pOut.Size = -1; // nvarchar(max)
+        pOut.Direction = ParameterDirection.Output;
+        command.Parameters.Add(pOut);
+
+        await command.ExecuteNonQueryAsync();
+    }
+    catch
+    {
+        // Log 失敗不應中斷主流程
     }
 }
+    }
+}
+

@@ -141,3 +141,4 @@
 /Users/pochun/Desktop/backend-interview-mid-main/PoChunSu_BackendTest_MidLevel/obj/Debug/net8.0/PoChunSu_BackendTest_MidLevel.pdb
 /Users/pochun/Desktop/backend-interview-mid-main/PoChunSu_BackendTest_MidLevel/obj/Debug/net8.0/PoChunSu_BackendTest_MidLevel.genruntimeconfig.cache
 /Users/pochun/Desktop/backend-interview-mid-main/PoChunSu_BackendTest_MidLevel/obj/Debug/net8.0/ref/PoChunSu_BackendTest_MidLevel.dll
+/Users/pochun/Desktop/backend-interview-mid-main/PoChunSu_BackendTest_MidLevel/obj/Debug/net8.0/PoChunSu_BackendTest_MidLevel.sourcelink.json

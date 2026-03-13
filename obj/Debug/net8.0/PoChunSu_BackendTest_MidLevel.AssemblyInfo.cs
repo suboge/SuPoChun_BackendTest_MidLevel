@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PoChunSu_BackendTest_MidLevel")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b5248938c1ea134a296193d3baebe6bf6e8ed834")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86d7853d1ddd1fce004d866f4d3bfca72b62d2d0")]
 [assembly: System.Reflection.AssemblyProductAttribute("PoChunSu_BackendTest_MidLevel")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PoChunSu_BackendTest_MidLevel")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
