@@ -19,3 +19,7 @@
 在專案根目錄開啟終端機，執行以下指令：
 ```bash
 dotnet run
+
+### 4. 執行日誌
+關於執行日誌 (ExecutionLog)：
+專案架構已考量到維運需求，雖然目前 CRUD 以核心邏輯為主，但未來可輕易整合 usp_AddLog 將 API 異常資訊記錄至 MyOffice_ExcuteionLog 表中，以利後續追蹤與排錯。
