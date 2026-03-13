@@ -78,7 +78,7 @@ command.Parameters.Add(tableParam);
 var returnParam = command.CreateParameter();
 returnParam.ParameterName = "@ReturnSID";
 returnParam.DbType = DbType.String;
-returnParam.Size = 50; // 設定長度以接收字串
+returnParam.Size = 50; 
 returnParam.Direction = ParameterDirection.Output;
 command.Parameters.Add(returnParam);
 
