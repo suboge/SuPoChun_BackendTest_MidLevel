@@ -15,11 +15,12 @@
 2. 執行還原指令或透過 SSMS 介面進行還原，資料庫名稱請設定為 `Myoffice_ACPD`。
 3. **連線字串設定**：請修改 `appsettings.json` 中的 `ConnectionStrings:DefaultConnection`，填入您的 SQL Server 伺服器位址與驗證資訊。
 
-### 3. 執行專案
+### 3. 執行日誌
+關於執行日誌 (ExecutionLog)：
+專案架構已考量到維運需求，雖然目前 CRUD 以核心邏輯為主，usp_AddLog 將 API 異常資訊記錄至 MyOffice_ExcuteionLog 表中，以利後續追蹤與排錯。
+
+### 4. 執行專案
 在專案根目錄開啟終端機，執行以下指令：
 ```bash
 dotnet run
 
-### 4. 執行日誌
-關於執行日誌 (ExecutionLog)：
-專案架構已考量到維運需求，雖然目前 CRUD 以核心邏輯為主，但未來可輕易整合 usp_AddLog 將 API 異常資訊記錄至 MyOffice_ExcuteionLog 表中，以利後續追蹤與排錯。
